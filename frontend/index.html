@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laravel Blog API - Frontend</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigācijas josla -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-icon">📝</span>
+                <span class="logo-text">Laravel Blog</span>
+            </a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <div class="nav-menu" id="nav-menu">
+                <div class="nav-links">
+                    <a href="#" class="nav-link active" data-section="posts">Ieraksti</a>
+                    <a href="#" class="nav-link" data-section="about">Par mums</a>
+                </div>
+                <div class="nav-actions">
+                    <button id="btn-login" class="btn btn-primary btn-sm">Login</button>
+                    <button id="btn-register" class="btn btn-secondary btn-sm">Register</button>
+                    <button id="btn-logout" class="btn btn-danger btn-sm hidden">Logout</button>
+                    <div class="nav-divider"></div>
+                    <button id="btn-fetch-xhr" class="btn btn-info btn-sm">XHR</button>
+                    <button id="btn-fetch-async" class="btn btn-info btn-sm">Async</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Laravel Blog API</h1>
+            <p class="subtitle">Vanilla JavaScript + AJAX piemērs</p>
+        </header>
+
+        <!-- Spinner -->
+        <div id="spinner" class="spinner hidden">
+            <div class="spinner-circle"></div>
+            <p>Ielādē...</p>
+        </div>
+
+        <!-- Progress Bar -->
+        <div id="progress-bar" class="progress-container hidden">
+            <div class="progress-bar"></div>
+        </div>
+
+        <!-- Auth Forms -->
+        <div id="auth-forms" class="auth-forms">
+            <div id="login-form" class="form-container hidden">
+                <h2>Login</h2>
+                <form id="login">
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+
+            <div id="register-form" class="form-container hidden">
+                <h2>Register</h2>
+                <form id="register">
+                    <input type="text" name="name" placeholder="Name" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <input type="password" name="password_confirmation" placeholder="Confirm Password" required>
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- User Info -->
+        <div id="user-info" class="user-info hidden">
+            <h3>Paldies, <span id="user-name"></span>!</h3>
+            <p>Email: <span id="user-email"></span></p>
+        </div>
+
+        <!-- Create Post Form -->
+        <div id="create-post-form" class="form-container hidden">
+            <h2>Izveidot jaunu ierakstu</h2>
+            <form id="create-post">
+                <input type="text" name="title" placeholder="Nosaukums" required>
+                <textarea name="body" placeholder="Saturs" required></textarea>
+                <select name="post_status_id">
+                    <option value="1">Publisks</option>
+                    <option value="2">Privāts</option>
+                </select>
+                <button type="submit" class="btn btn-primary">Izveidot</button>
+            </form>
+        </div>
+
+        <!-- Posts List -->
+        <div id="posts-container" class="posts-container">
+            <h2>Ieraksti</h2>
+            <div id="posts-list"></div>
+        </div>
+
+        <!-- Comments Section -->
+        <div id="comments-section" class="comments-section hidden">
+            <h2>Komentāri</h2>
+            <div id="comments-list"></div>
+            <div id="add-comment-form" class="form-container hidden">
+                <form id="create-comment">
+                    <textarea name="content" placeholder="Tavs komentārs..." required></textarea>
+                    <button type="submit" class="btn btn-primary">Pievienot komentāru</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Notification -->
+        <div id="notification" class="notification hidden"></div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
